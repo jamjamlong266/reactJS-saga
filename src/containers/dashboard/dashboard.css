@@ -1,0 +1,26 @@
+.formContainer {
+    width:300px;
+    height:400px;
+    background-color: antiquewhite;
+    position:fixed;
+    left:50%;
+    top:200px;
+    margin-left: -150px;
+    display:flex;
+    flex-direction: column;
+    padding:20px;
+    box-sizing: border-box;
+}
+
+label {
+    margin-top:15px;
+}
+
+.formContainer button {
+    margin:20px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}

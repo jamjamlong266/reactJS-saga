@@ -1,0 +1,23 @@
+.taskContainer {
+    width:400px;
+    height:150px;
+    border-radius: 5px;
+    border:1px solid rgba(0,0,0,0.5);
+    /* margin */
+    margin:10px;
+}
+
+.taskHeader {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom:2px  solid rgba(0,0,0,0.5);
+    padding:0 20px;
+    box-sizing: border-box;
+}
+
+.taskDetail {
+    padding:0 20px;
+    box-sizing: border-box;
+}

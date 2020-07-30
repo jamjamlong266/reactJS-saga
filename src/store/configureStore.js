@@ -1,21 +1,21 @@
 import { createLogger } from "redux-logger";
 import { createStore, applyMiddleware } from "redux";
 import { persistStore, persistCombineReducers } from "redux-persist";
-// import storage from 'redux-persist/lib/storage';
-import AsyncStorage from "@react-native-community/async-storage";
+import storage from "redux-persist/lib/storage";
+// import AsyncStorage from "@react-native-community/async-storage";
 import createSagaMiddleware from "redux-saga";
 
-import reducers from "../reducers/index";
-import sagas from "../sagas/index";
+import reducers from "reducers/index";
+import sagas from "sagas/index";
 
 let store, middlewares;
 const sagaMiddleware = createSagaMiddleware();
 
 const config = {
   key: "root",
-  storage: AsyncStorage,
-  // storage,
-  whitelist: ["PROFILE"]
+  // storage: AsyncStorage,
+  storage,
+  whitelist: ["PROFILE"],
 };
 
 const reducer = persistCombineReducers(config, reducers);
@@ -25,7 +25,7 @@ if (__DEV__) {
   const excludedActions = [];
   const logger = createLogger({
     collapsed: true,
-    predicate: (getState, action) => excludedActions.indexOf(action.type) < 0
+    predicate: (getState, action) => excludedActions.indexOf(action.type) < 0,
   });
   middlewares = applyMiddleware(sagaMiddleware, logger);
 } else {

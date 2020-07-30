@@ -2,28 +2,24 @@ import { takeLatest, call, all, fork, put } from "redux-saga/effects";
 import Actions from "../../actions";
 import * as api from "../../api";
 
-import { encode } from "../../services/encryption";
-
 function* login({ data }) {
+  console.log(data);
+
   const formData = new FormData();
   formData.append("email", data.email);
   formData.append("password", data.password);
 
-  const { response } = yield call(api.login, formData);
+  const { response, error } = yield call(api.login, formData);
+  console.log("login saga", response, error);
 
-  if (response && response.data.code === 1) {
-    // const loginInfo = {
-    //   timestamp: new Date().valueOf(),
-    //   userId: response.data.data.userId,
-    //   token: response.data.data.xToken
-    // };
-
-    yield put(Actions.loginSuccess(response.data.data));
-    // yield put(
-    //   Actions.activateUserSession({ xToken: encode(JSON.stringify(loginInfo)) })
-    // );
-  } else {
-    yield put(Actions.loginFail(response.data.message));
+  if (response && response.data.status === "success") {
+    yield put(Actions.loginSuccess(response.data));
+    // yield put(Actions.resetUserSession());
+    yield put(Actions.activateUserSession(response.data.token));
+  }
+  if (error) {
+    console.log("login saga error", error.response);
+    yield put(Actions.loginFail(error.response));
   }
 }
 

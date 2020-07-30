@@ -1,0 +1,45 @@
+.breadcrumb {
+    list-style-type: none;
+}
+
+.breadcrumb li {
+    display:inline-block;
+    margin: 0 15px;
+    font-size:12px;
+}
+
+.taskCardContainer {
+    width:500px;
+    margin:0 auto;
+}
+
+.taskId {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color:#EDAE43;
+    width:100px;
+    height:40px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color:white;
+}
+
+.taskHolder {
+    width:500px;
+    min-height: 300px;
+    height:auto;
+    background-color: #91C5BC;
+    padding:15px;
+    box-sizing: border-box;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color:white;
+}
+
+.taskHeader {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}

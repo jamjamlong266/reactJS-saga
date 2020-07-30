@@ -10,9 +10,9 @@ function userSession(state, action) {
   switch (action.type) {
     case Actions.ACTIVATE_USER_SESSION:
       return {
-        isLoading: false,
+        isLoading: true,
         error: null,
-        data: action.data
+        data: action.data,
       };
     case Actions.RESET_USER_SESSION:
       return getDefaultState();

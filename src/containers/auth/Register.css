@@ -1,0 +1,10 @@
+.popBox {
+    width:300px;
+    height:200px;
+    background-color:cadetblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:0 auto;
+    /* position: fixed; */
+}
